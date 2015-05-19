@@ -8,7 +8,7 @@
 	License: GPLv2 or later
 	License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-	A minimal & easy lighweight option for framwork.
+	A minimal & easy lighweight option framwork.
 
 == Description ==
 
