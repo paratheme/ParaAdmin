@@ -1,5 +1,8 @@
 <?php
 
+if ( ! defined('ABSPATH')) exit;  // if direct access 
+
+
 // ParaAdmin Class
 if (!class_exists('paraAdmin')) {
     // generate the class here
@@ -276,17 +279,7 @@ class paraAdmin
 				
 				return $html;
 			}
-			
-			
-			
-			
-			
-			
-			
-			
-		
-		
-		
+					
 	}
 	
 }

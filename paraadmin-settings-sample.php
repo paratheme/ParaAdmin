@@ -1,19 +1,11 @@
 <?php	
 
-
 if ( ! defined('ABSPATH')) exit; // if direct access 
-
-
 	
 ?>
 
 <div class="wrap">
-
-	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__('ParaAdmin Demo', 'your_text_domain')."</h2>";?>
-
-    
-<?php
-
+	<div id="icon-tools" class="icon32"><br></div><?php echo "<h2>".__('ParaAdmin Demo', 'your_text_domain')."</h2>";
 
 	// unique id to save option
 	$slug_options_id = 'slug_options'; 
@@ -25,10 +17,6 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 								'tab2'=>'Tab 2',								
 								
 								);
-	
-	
-	
-	
 	
 	// Option parameter by tab1
 	$slug_options['tab1'] = array(
@@ -120,16 +108,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 	
 	// Display options
 	echo $slug_display->option_output($slug_options_id, $slug_options, $slug_options_tabs) ;
-	
-	
-
-
 
 ?>
-
-
-
-
-
 
 </div>

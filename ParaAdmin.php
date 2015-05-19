@@ -8,18 +8,13 @@ Author: paratheme
 Author URI: http://paratheme.com
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-
 */
 
 if ( ! defined('ABSPATH')) exit;  // if direct access 
 
 define('paraadmin_plugin_url', WP_PLUGIN_URL . '/' . plugin_basename( dirname(__FILE__) ) . '/' );
 
-
 require_once( plugin_dir_path( __FILE__ ) . 'ParaAdmin/ParaAdminClass.php');
-
-
 
 function paraadmin_init_scripts()
 	{
@@ -28,30 +23,13 @@ function paraadmin_init_scripts()
 		//ParaAdmin
 		wp_enqueue_style('ParaAdmin', paraadmin_plugin_url.'ParaAdmin/css/ParaAdmin.css');	
 		wp_enqueue_script('ParaAdmin', plugins_url( 'ParaAdmin/js/ParaAdmin.js' , __FILE__ ) , array( 'jquery' ));
-				
-				
+		
 	}
 add_action("init","paraadmin_init_scripts");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Admin setting page
 add_action('admin_menu', 'paraadmin_menu_init');
 
 
@@ -66,6 +44,3 @@ function paraadmin_menu_init()
 		
 		
 	}
-
-
-
