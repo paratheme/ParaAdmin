@@ -70,7 +70,18 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 												'option3'=>'Option 3',												
 												'option4'=>'Option 4',												
 												), // could be array							
-						),						
+						),
+						
+					'paraadmin_file'=>array(
+						'css_class'=>'paraadmin_file',
+						'title'=>'Demo file.',
+						'option_details'=>'Demo file details.',
+						'input_type'=>'file', // text, radio, checkbox, select, 
+						'input_values'=>'', // could be array							
+						),			
+						
+
+												
 
 					);
 					

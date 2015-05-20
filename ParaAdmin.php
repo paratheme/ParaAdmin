@@ -28,6 +28,7 @@ function paraadmin_init_scripts()
 add_action("init","paraadmin_init_scripts");
 
 
+add_action( 'admin_enqueue_scripts', 'wp_enqueue_media' ); 
 
 // Admin setting page
 add_action('admin_menu', 'paraadmin_menu_init');

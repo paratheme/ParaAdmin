@@ -271,7 +271,76 @@ class paraAdmin
 						
 					}					
 					
-					
+				if($input_type == 'file')
+					{
+								
+						$option_id_value = $slug_options[$id];
+							if(empty($option_id_value))
+								{
+									$option_id_value = $input_values;
+								}
+
+
+						
+						$html.= '
+                            <input type="text" size="40" class="'.$css_class.'" id="file_'.$id.'" name="'.$slug_options_id.'['.$id.']" value="'.$option_id_value.'" /><br />
+                            <input id="upload_button_'.$id.'" class="upload_button_'.$id.' button" type="button" value="Upload File" />
+						
+						
+						
+						
+                            <script>
+								jQuery(document).ready(function($){
+	
+									var custom_uploader; 
+								 
+									jQuery("#upload_button_'.$id.'").click(function(e) {
+	
+										e.preventDefault();
+								 
+										//If the uploader object has already been created, reopen the dialog
+										if (custom_uploader) {
+											custom_uploader.open();
+											return;
+										}
+								
+										//Extend the wp.media object
+										custom_uploader = wp.media.frames.file_frame = wp.media({
+											title: "Choose File",
+											button: {
+												text: "Choose File"
+											},
+											multiple: false
+										});
+								
+										//When a file is selected, grab the URL and set it as the text field\'s value
+										custom_uploader.on("select", function() {
+											attachment = custom_uploader.state().get("selection").first().toJSON();
+											jQuery("#file_'.$id.'").val(attachment.url);
+										});
+								 
+										//Open the uploader dialog
+										custom_uploader.open();
+								 
+									});
+									
+									
+								})
+							</script>	
+						
+						
+						
+						
+						
+						';
+						
+						
+						
+						
+						
+						
+						
+					}
 					
 									
 									
