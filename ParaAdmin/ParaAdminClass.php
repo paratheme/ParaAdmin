@@ -13,8 +13,6 @@ class paraAdmin
 		
 		function option_output($slug_options_id, $options_all, $options_tabs)
 			{
-				$html = '';
-				
 				
 				if(empty($_POST[$slug_options_id.'_hidden']))
 					{
@@ -28,28 +26,28 @@ class paraAdmin
 							$slug_options = $_POST[$slug_options_id];
 							update_option($slug_options_id, $slug_options);
 							
-							$html .= '<div class="updated"><p><strong>Changes Saved</strong></p></div>';
+							echo '<div class="updated"><p><strong>Changes Saved</strong></p></div>';
 
 							} 
 					}
 				
 
-				$html .= '<form  method="post" action="'.str_replace( "%7E", "~", $_SERVER["REQUEST_URI"]).'">';				
+				echo '<form  method="post" action="'.str_replace( "%7E", "~", $_SERVER["REQUEST_URI"]).'">';				
 				
-				$html .= '<input type="hidden" name="'.$slug_options_id.'_hidden" value="Y">';				
+				echo '<input type="hidden" name="'.$slug_options_id.'_hidden" value="Y">';				
 				
-				$html .= settings_fields( 'slug_options' );
-				$html .=  do_settings_sections( 'slug_options' );
-				
-				
+				echo settings_fields( 'slug_options' );
+				echo  do_settings_sections( 'slug_options' );
 				
 				
 				
 				
 				
-				$html .= '<div class="para-settings">';
 				
-				$html .= '<ul class="tab-nav">';	
+				
+				echo '<div class="para-settings">';
+				
+				echo '<ul class="tab-nav">';	
 				
 				$i=1;			
 				foreach($options_tabs as $id => $tabs)
@@ -63,15 +61,15 @@ class paraAdmin
 								$active = '';
 							}
 							
-						$html.= '<li nav="'.$i.'" class="tab'.$i.' '.$active.' ">'.$tabs.'</li>';
+						echo '<li nav="'.$i.'" class="tab'.$i.' '.$active.' ">'.$tabs.'</li>';
 						
 						$i++;
 					}
-				$html .= '</ul>';
+				echo '</ul>';
 				
 				
 								
-				$html .= '<ul class="box">';
+				echo '<ul class="box">';
 				
 				$j = 1;
 				foreach($options_tabs as $id => $tabs)
@@ -86,7 +84,7 @@ class paraAdmin
 								$active = '';
 								$display = 'none';	
 							}
-						$html.= '<li style="display: '.$display.';" class="box'.$j.' tab-box '.$active.'">';
+						echo '<li style="display: '.$display.';" class="box'.$j.' tab-box '.$active.'">';
 							foreach($options_all[$id] as $id => $options)
 								{
 									foreach($options as $option)
@@ -97,21 +95,21 @@ class paraAdmin
 									$input_type = $options['input_type'];						
 									$input_values = $options['input_values'];						
 									
-									$html.= '<div class="option-box">';
+									echo '<div class="option-box">';
 									
-									$html.= '<p class="option-title">'.$title.'</p>';
-									$html.= '<p class="option-info">'.$option_details.'</p>';
+									echo '<p class="option-title">'.$title.'</p>';
+									echo '<p class="option-info">'.$option_details.'</p>';
 									
-									$html.= $this->input_type($slug_options_id, $input_type, $input_values, $id, $css_class);
+									echo $this->input_type($slug_options_id, $input_type, $input_values, $id, $css_class);
 									
-									$html.= '</div>';
+									echo '</div>';
 									
 								}
-						$html.= '</li>';						
+						echo '</li>';						
 						
 						$j++;
 					}
-				$html .= '</ul>';
+				echo '</ul>';
 							
 							
 							
@@ -120,22 +118,17 @@ class paraAdmin
 
 					
 					
-				$html .= '</div>';
+				echo '</div>';
 				
 				
-				$html .= '<p class="submit"><input class="button button-primary" type="submit" name="Submit" value="Save Changes" /></p></form>';				
-				
-				
-				
-				
-				return $html;
+				echo '<p class="submit"><input class="button button-primary" type="submit" name="Submit" value="Save Changes" /></p></form>';
 				
 			}
 			
 			
 		function input_type($slug_options_id, $input_type, $input_values, $id, $css_class)
 			{
-
+				
 				$slug_options = get_option( $slug_options_id );	
 				
 				$html ='';
@@ -149,7 +142,7 @@ class paraAdmin
 								}
 
 						
-						$html.= '<input name="'.$slug_options_id.'['.$id.']" type="text" value="'.$option_id_value.'" id="'.$id.'" class="'.$css_class.'" />';
+						echo '<input name="'.$slug_options_id.'['.$id.']" type="text" value="'.$option_id_value.'" id="'.$id.'" class="'.$css_class.'" />';
 					}
 					
 				elseif($input_type == 'textarea')
@@ -172,7 +165,7 @@ class paraAdmin
 						
 						
 						
-						$html.= '<textarea name="'.$slug_options_id.'['.$id.']" type="text" id="'.$id.'" class="'.$css_class.'" >'.$value.'</textarea>';
+						echo '<textarea name="'.$slug_options_id.'['.$id.']" type="text" id="'.$id.'" class="'.$css_class.'" >'.$value.'</textarea>';
 					}					
 					
 					
@@ -203,10 +196,10 @@ class paraAdmin
 								
 								
 								
-								$html.= '<label>';
+								echo '<label>';
 								
-								$html.= '<input name="'.$slug_options_id.'['.$key.']" type="checkbox" '.$checked.' value="1" id="'.$key.'" class="'.$css_class.'" /> '.$value;
-								$html.= '</label><br />';
+								echo '<input name="'.$slug_options_id.'['.$key.']" type="checkbox" '.$checked.' value="1" id="'.$key.'" class="'.$css_class.'" /> '.$value;
+								echo '</label><br />';
 							}
 					
 
@@ -216,7 +209,7 @@ class paraAdmin
 					{
 						
 						
-						$html.= '<select name="'.$slug_options_id.'['.$id.']" id="'.$id.'" class="'.$css_class.'">';
+						echo '<select name="'.$slug_options_id.'['.$id.']" id="'.$id.'" class="'.$css_class.'">';
 							foreach($input_values as $key => $value)
 								{
 									
@@ -234,9 +227,9 @@ class paraAdmin
 									
 									
 									
-									$html.= '<option '.$selected.'  value="'.$key.'" >'.$value.'</option>';
+									echo '<option '.$selected.'  value="'.$key.'" >'.$value.'</option>';
 								}
-						$html.= '</select>';
+						echo '</select>';
 						
 					}
 					
@@ -246,7 +239,7 @@ class paraAdmin
 
 						foreach($input_values as $key => $value)
 							{
-								$html.= '<label>';
+								echo '<label>';
 								
 								//var_dump($key);
 								
@@ -264,14 +257,38 @@ class paraAdmin
 								
 								
 								
-								$html.= '<input '.$checked.'  class="'.$css_class.'" id="'.$key.'" type="radio" name="'.$slug_options_id.'['.$id.']" value="'.$key.'" >'.$value.'</option> ';
-								$html.= '</label><br />';
+								echo '<input '.$checked.'  class="'.$css_class.'" id="'.$key.'" type="radio" name="'.$slug_options_id.'['.$id.']" value="'.$key.'" >'.$value.'</option> ';
+								echo '</label><br />';
 							}
 
 						
 					}					
 					
-				if($input_type == 'file')
+					
+				elseif($input_type == 'editor')
+					{
+						
+						if(empty($slug_options[$id]))
+							{
+								$slug_options[$id] = '';
+							}
+						
+								
+						$option_id_value = $slug_options[$id];
+							if(empty($option_id_value))
+								{
+									$option_id_value = $input_values;
+								}
+
+
+									wp_editor( stripslashes($option_id_value), $id, $settings = array('textarea_name'=>$slug_options_id.'['.$id.']','editor_height'=>'150px') );
+
+						//echo '<input name="'.$slug_options_id.'['.$id.']" type="text" value="'.$option_id_value.'" id="'.$id.'" class="'.$css_class.'" />';
+					}
+					
+					
+					
+				elseif($input_type == 'file')
 					{
 								
 						$option_id_value = $slug_options[$id];
@@ -282,7 +299,7 @@ class paraAdmin
 
 
 						
-						$html.= '
+						echo '
                             <input type="text" size="40" class="'.$css_class.'" id="file_'.$id.'" name="'.$slug_options_id.'['.$id.']" value="'.$option_id_value.'" /><br />
                             <input id="upload_button_'.$id.'" class="upload_button_'.$id.' button" type="button" value="Upload File" />
 						
@@ -342,11 +359,8 @@ class paraAdmin
 						
 					}
 					
-									
-									
+
 				
-				
-				return $html;
 			}
 					
 	}

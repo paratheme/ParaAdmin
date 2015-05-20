@@ -13,8 +13,8 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 
 	// tab list
 	$slug_options_tabs = array(
-								'tab1'=>'Tab 1', 
-								'tab2'=>'Tab 2',								
+								'tab1'=>'<i class="fa fa-sign-in"></i> Tab 1',
+								'tab2'=>'<i class="fa fa-share-alt"></i> Tab 2',
 								
 								);
 	
@@ -22,7 +22,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 	$slug_options['tab1'] = array(
 					'paraadmin_test'=>array(
 						'css_class'=>'paraadmin_test',					
-						'title'=>'Demo text field.',
+						'title'=>'<i class="fa fa-share-alt"></i> Demo text field.',
 						'option_details'=>'Demo text details.',						
 						'input_type'=>'text', // text, radio, checkbox, select, 
 						'input_values'=>'dummy value', // could be array
@@ -30,7 +30,7 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 						
 					'paraadmin_textarea'=>array(
 						'css_class'=>'paraadmin_textarea',					
-						'title'=>'Demo textarea',
+						'title'=>'Demo textarea.',
 						'option_details'=>'Demo textarea details.',						
 						'input_type'=>'textarea', // text, radio, checkbox, select, 
 						'input_values'=>'dummy value', // could be array							
@@ -80,7 +80,13 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 						'input_values'=>'', // could be array							
 						),			
 						
-
+					'paraadmin_editor'=>array(
+						'css_class'=>'paraadmin_editor',					
+						'title'=>'Demo Editor',
+						'option_details'=>'Demo Editor details.',						
+						'input_type'=>'editor', // text, radio, checkbox, select, 
+						'input_values'=>'Test value', // could be array							
+						),	
 												
 
 					);
@@ -88,6 +94,9 @@ if ( ! defined('ABSPATH')) exit; // if direct access
 					
 	// Option parameter by tab2		
 	$slug_options['tab2'] = array(
+	
+	
+
 	
 	
 	

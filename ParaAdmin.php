@@ -19,7 +19,9 @@ require_once( plugin_dir_path( __FILE__ ) . 'ParaAdmin/ParaAdminClass.php');
 function paraadmin_init_scripts()
 	{
 		wp_enqueue_script('jquery');
-
+		
+		wp_enqueue_style('font-awesome', paraadmin_plugin_url.'css/font-awesome.css');
+			
 		//ParaAdmin
 		wp_enqueue_style('ParaAdmin', paraadmin_plugin_url.'ParaAdmin/css/ParaAdmin.css');	
 		wp_enqueue_script('ParaAdmin', plugins_url( 'ParaAdmin/js/ParaAdmin.js' , __FILE__ ) , array( 'jquery' ));
